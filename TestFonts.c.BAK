@@ -1,0 +1,47 @@
+// Add this function BEFORE display_task if you want to test fonts
+static void test_fonts(void) {
+    // Clear screen
+    display_clear(DISP_BLACK);
+    
+    // Test original font
+    display_draw_string(10, 10, "Default Font", DISP_WHITE, DISP_BLACK);
+    
+    // Test 8x8 font for numbers
+    display_draw_string_font(10, 30, "1234567890", DISP_GREEN, DISP_BLACK, &font_8x8);
+    
+    // Switch default font
+    display_set_font(&font_8x8);
+    display_draw_string(10, 50, "Now 8x8", DISP_CYAN, DISP_BLACK);
+    
+    // Switch back
+    display_set_font(&font_5x8);
+    display_draw_string(10, 70, "Back to 5x8", DISP_YELLOW, DISP_BLACK);
+    
+    vTaskDelay(pdMS_TO_TICKS(3000));
+}
+
+// Then in your display_task function, you can call it:
+void display_task(void *arg)
+{
+    ESP_LOGI(TAG, "Display task starting (smart updates, no flicker)");
+    
+    // Initialize display
+    if (display_init() != 0) {
+        ESP_LOGE(TAG, "Failed to initialize display");
+        vTaskDelete(NULL);
+        return;
+    }
+    
+    // Set backlight
+    display_set_backlight(80);
+    
+    // OPTIONAL: Test fonts
+    // test_fonts();
+    
+    // Show startup message (original code)
+    display_clear(DISP_BLACK);
+    display_draw_string(LEFT_MARGIN, 50, "BACnet Monitor", DISP_WHITE, DISP_BLACK);
+    display_draw_string(LEFT_MARGIN, 70, "Starting...", DISP_GREEN, DISP_BLACK);
+    
+    // ... rest of original display_task code ...
+}

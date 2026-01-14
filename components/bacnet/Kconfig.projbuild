@@ -1,0 +1,39 @@
+menu "BACnet Stack Configuration"
+
+    config MAX_APDU
+        int "Max APDU buffer size"
+        range 50 2048
+        default 1476
+        help
+            Maximum APDU buffer size in bytes.
+
+    config MAX_BITSTRING_BYTES
+        int "Max Bitstring bytes"
+        default 15
+        help
+            Maximum size of bitstring in bytes.
+
+    config MAX_CHARACTER_STRING_BYTES
+        int "Max Character String bytes"
+        default 64
+        help
+            Maximum size of character string in bytes.
+
+    config MAX_OCTET_STRING_BYTES
+        int "Max Octet String bytes"
+        default 64
+        help
+            Maximum size of octet string in bytes.
+
+    config CLIENT_DEVICE_ID
+        int "BACnet Client Device ID"
+        default 654321
+        help
+            Unique BACnet Device Instance Number for the client.
+
+    config BUTTON_GPIO
+        int "Button GPIO number"
+        default 0
+        help
+            GPIO number connected to the button.
+endmenu

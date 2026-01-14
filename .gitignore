@@ -1,0 +1,15 @@
+# Build artifacts
+
+build/
+
+
+# VS Code specific files (optional, as the next step creates a new config folder)
+.vscode/
+
+# Other common exclusions
+.DS_Store
+*.pyc
+venv/
+
+# Ignore the demo gif file
+demo.gif

@@ -1,0 +1,15 @@
+// In display_task.c, you can use fonts like this:
+
+// Option 1: Use default font (5x8) - current behavior
+display_draw_string(LEFT_MARGIN, LINE1_Y, "ID: 123456", DISP_WHITE, DISP_BLACK);
+
+// Option 2: Use specific font for certain text
+display_draw_string_font(LEFT_MARGIN, LINE1_Y, "BACnet Monitor", DISP_WHITE, DISP_BLACK, &font_12x24);
+
+// Option 3: Change default font globally
+display_set_font(&font_8x16);  // Now all display_draw_string calls will use 8x16
+
+// Option 4: Mix fonts in the same display
+display_draw_string_font(LEFT_MARGIN, 10, "Large Title", DISP_WHITE, DISP_BLACK, &font_12x24);
+display_draw_string_font(LEFT_MARGIN, 40, "Medium Text", DISP_CYAN, DISP_BLACK, &font_8x16);
+display_draw_string_font(LEFT_MARGIN, 70, "Small Text", DISP_WHITE, DISP_BLACK, &font_5x8);
