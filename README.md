@@ -2,7 +2,7 @@
 
 ESP32 BACnet/IP, PMS5003 Air Quality sensor, ST7789 display (LVGL).
 
-NOTE: the new project https://github.com/MGuerrero31416/BACnet-ESP32-Display is cleaner and more advanced than this one. This one is a mashup from Lukedukeus esp32-bacnet-master-v5.0. 
+NOTE: the new project https://github.com/MGuerrero31416/BACnet-ESP32-Display is cleaner and more advanced than this one. This one is a Frankenstein mashup from Lukedukeus esp32-bacnet-master-v5.0. Hard to modify. Many code is at main.c instead of using the libraries. COV is not working.
 
 BACnet-ESP32-Display has been properly generated using bacnet-stack library and modifying the functions for compatibility with ESP-IDF v5.5.1. It is easier to make modifications on the new BACnet-ESP32-Display
 
